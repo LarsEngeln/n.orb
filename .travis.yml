@@ -13,4 +13,4 @@ cache:
 
 install: yarn
 
-script: yarn build
+script: yarn travis
