@@ -1,0 +1,41 @@
+
+// Lars Engeln - mail@lars-engeln.de
+
+@import 'CD-definitions';
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,900&subset=latin-ext');
+
+body {
+    font-family: 'DIN Web', 'Source Sans Pro', 'Helvetica', 'Arial', sans-serif;
+    @include font-regular();
+}
+h1 {
+    font-size: 25px;
+    line-height: 130%;
+}
+h2 {
+    font-size: 21px;
+    line-height: 120%;
+    text-transform: uppercase;
+}
+h3 {
+    font-size: 18px;
+    line-height: 120%;
+    @include font-semibold();
+}
+h4 {
+    font-size: 16px;
+    line-height: 100%;
+    @include font-semibold();
+}
+
+p, p.primary, a, a.primary {
+    @include primary-text();
+}
+p.secondary, a.secondary {
+    @include secondary-text();
+}
+
+figcaption {
+    font-size: 12px;
+    line-height: 150%;
+}

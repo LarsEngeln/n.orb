@@ -1,0 +1,30 @@
+
+// Lars Engeln - mail@lars-engeln.de
+
+//Schriften
+
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,900&subset=latin-ext');
+@mixin font-light {
+    font-weight: 300;
+}
+@mixin font-regular {
+    font-weight: 400;
+}
+@mixin font-semibold {
+    font-weight: 600;
+}
+@mixin font-black {
+    font-weight: 900;
+}
+
+@mixin primary-text {
+    font-size: 16px;
+    line-height: 160%;
+    font-family: 'DIN Web', 'din-2014', 'Source Sans Pro', 'Helvetica', 'Arial', sans-serif;
+    @include font-regular();
+}
+@mixin secondary-text {
+    @include primary-text();
+    font-size: 14px;
+    line-height: 140%;
+}

@@ -1,0 +1,66 @@
+
+// Lars Engeln - mail@lars-engeln.de
+
+@import "CD";
+
+$primaryColor:     rgb(0, 137, 155);
+$secondaryCcolor:  darken(rgb(105, 228, 152), 15);
+$highlightColor:   rgb(0, 180, 252);
+$darkColor:        rgb(5,5,5);
+$lightColor:       rgb(197, 217, 219);
+
+$textWhiteColor:   #fff;
+
+$borderRadius:      3px;
+
+$transitionDuration: 400ms;
+$unhoveredOpacity: 0.7;
+
+a {
+    color: $highlightColor;
+}
+
+@mixin shadow ($level: 0) {
+    @if $level == 0 {   $level: 1px;            }
+    @else {             $level: $level * 10px;  }
+    -webkit-box-shadow: 0px 0px $level 0px rgba(50, 50, 50, 0.3);
+    -moz-box-shadow:    0px 0px $level 0px rgba(50, 50, 50, 0.3);
+    box-shadow:         0px 0px $level 0px rgba(50, 50, 50, 0.3);
+}
+
+@mixin transition ($prop: all, $duration: $transitionDuration, $timingFunction: ease) {
+    -webkit-transition: $prop $transitionDuration $timingFunction;
+    -moz-transition:    $prop $transitionDuration $timingFunction;
+    -o-transition:      $prop $transitionDuration $timingFunction;
+    transition:         $prop $transitionDuration $timingFunction;
+}
+
+@mixin hoverOpacity ($opacity: $unhoveredOpacity) {
+    opacity: $opacity;
+    &:hover {
+        opacity: 1.0;
+        @include transition(opacity);
+    }
+    @include transition(opacity);
+}
+
+@mixin fadeable {
+    @include transition();
+    opacity: 1;
+    zoom: 1;
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+
+    &.fadeOut {
+        @include transition();
+        opacity: 0.0;
+        transform: translate(-5);
+        -webkit-transform: translate(-5);
+        -moz-transform: translate(-5);
+        -ms-transform: translate(-5);
+        -o-transform: translate(-5);
+    }
+}
