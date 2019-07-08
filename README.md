@@ -1,4 +1,6 @@
 # n.orb
+[![Build Status](https://travis-ci.org/LarsEngeln/n.orb.svg?branch=master)](https://travis-ci.org/LarsEngeln/n.orb)
+
 n.orb is a little mini game where you are a orb on a orb... sounds funny, but it is probably not.
 
 Is it "playable" right now? - No :c
