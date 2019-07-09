@@ -7,7 +7,7 @@
 <script lang="ts">
 import { Vue, Component, Prop } from "vue-property-decorator";
 import Renderer3D, { IRenderable } from "./../renderer/renderer";
-import Scene from "./../renderer/scene";
+import Game from "./../renderer/game";
 
 @Component
 export default class App extends Vue {
@@ -15,17 +15,12 @@ export default class App extends Vue {
     renderer: Renderer3D;
 
     mounted() {
-        console.log(this.$refs.canvas );
-
         this.renderer = new Renderer3D( this.$refs.canvas as HTMLCanvasElement );
 
-        let scene: Scene = new Scene();
-        console.log(this.renderer);
-
-        this.renderer.setActiveScene(scene);
+        let game = new Game();
+        this.renderer.setActiveScene(game);
 
         this.renderer.run();
-
     }
 }
 </script>

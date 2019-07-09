@@ -45,13 +45,13 @@ export default class Renderer3D {
 
     private postprocessing  : boolean;
     private enabledPasses = {
-        bloom:    false,
+        bloom:    true,
         hueSat:   true,
         contrast: true
     };
     private effectComposer  : EffectComposer;
 
-    private ssaoPass        : any; //THREE.SSAOPass;
+    private ssaoPass        : SSAOPass;
     private ssaoSettings = {
         enabled:        true,
         onlyAO:         false,
@@ -63,11 +63,11 @@ export default class Renderer3D {
     private bloomPass       : UnrealBloomPass;
     private bloomSettings = {
         projection:     "normal",
-        background:     true,
+        background:     false,
         exposure:       0.90,
-        bloomStrength:  0.66,
-        bloomThreshold: 0.64,
-        bloomRadius:    0.60
+        bloomStrength:  0.28,
+        bloomThreshold: 0.98,
+        bloomRadius:    0.30
     };
 
     private hueSatPass      : ShaderPass;
@@ -125,6 +125,7 @@ export default class Renderer3D {
         this.effectComposer = new EffectComposer( this.renderer );
 
         this.ssaoPass = new SSAOPass( this.activeScene.getScene(), this.activeScene.getCamera() );
+        this.ssaoPass.enabled = false;
         // this.ssaoPass.renderToScreen = true;
 
         this.smaaPass = new SMAAPass( window.innerWidth, window.innerHeight );
@@ -256,8 +257,6 @@ export default class Renderer3D {
     }
 
     onResize(): void {
-
-        console.log("resize");
         if(this.ssaoPass) {
             this.ssaoPass.setSize( window.innerWidth, window.innerHeight );
         }
