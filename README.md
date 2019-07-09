@@ -4,6 +4,7 @@
 n.orb is a little mini game where you are a orb on a orb... sounds funny, but it is probably not.
 
 Is it "playable" right now? - No :c
+But there will be a co-orb-mode :D!
 
 ### setting things up
 It is assumed that you have already installed node and yarn.
