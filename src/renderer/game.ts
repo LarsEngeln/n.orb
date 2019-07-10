@@ -7,7 +7,7 @@ import World from "./world";
 export default class Game implements IRenderable {
     viewWidth: number;    viewHeight: number;
 
-    private viewAngle       = 75;
+    private viewAngle       = 60;
     private nearFrustum     = 0.05;
     private farFrustum      = 2000;
     private aspectRatio     : number;
@@ -32,9 +32,11 @@ export default class Game implements IRenderable {
             this.nearFrustum,
             this.farFrustum
         );
-        this.camera.position.z = 100;
+        this.camera.position.z = 80;
         this.camera.position.x = 0;
-        this.camera.position.y = 0;
+        this.camera.position.y = -20;
+
+        this.camera.lookAt(new THREE.Vector3(0,20,0));
 
         this.sky    = new Sky(this.scene);
         this.world  = new World(this.scene);
