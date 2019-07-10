@@ -21,3 +21,11 @@ For quick dip you can spawn a dev-server with:
 > yarn start
 ```
 and open _http://localhost:8080/www/_.
+
+### lore
+This is n.orb.ert (good friends call him n.orb) and this is chief-orb.erator t.orb.en (good friends call him t.orb).
+The z.orb's are your main orb.ponents, who try to abs.orb our beloved s.orb.et.
+The f.orbs-magazin reported that the f.orb.iddingly evil z.orb's have been entered the orb.it. 
+
+The p.orb.e is blessing the whole orb with Orbi et Orbi.
+That's orb.icular orby!
