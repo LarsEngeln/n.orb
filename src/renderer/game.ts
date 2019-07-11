@@ -3,6 +3,7 @@ import * as THREE from "three";
 import { IRenderable } from "./renderer";
 import Sky from "./sky";
 import World from "./world";
+import Hero from "./hero";
 
 export default class Game implements IRenderable {
     viewWidth: number;    viewHeight: number;
@@ -17,7 +18,8 @@ export default class Game implements IRenderable {
     selectedObjects : THREE.Object3D[];
 
     sky             : Sky;
-    world           : World;
+    world           : World
+    hero            : Hero; 
 
     constructor() {
         this.viewWidth          = window.innerWidth;
@@ -32,7 +34,7 @@ export default class Game implements IRenderable {
             this.nearFrustum,
             this.farFrustum
         );
-        this.camera.position.z = 80;
+        this.camera.position.z = 200;//80;
         this.camera.position.x = 0;
         this.camera.position.y = -20;
 
@@ -40,6 +42,8 @@ export default class Game implements IRenderable {
 
         this.sky    = new Sky(this.scene);
         this.world  = new World(this.scene);
+        this.hero   = new Hero(this.world);
+        this.hero.heroGroup.position.addScaledVector(new THREE.Vector3(0,1,0), this.world.getRadius()+5);
     }
 
     update(): void {

@@ -8,6 +8,8 @@ export default class World {
 
     material    : THREE.MeshBasicMaterial;
 
+    radius      : number = 100;
+
     constructor(scene: THREE.Scene) {
         this.worldGroup = new THREE.Group();
         
@@ -25,13 +27,13 @@ export default class World {
     update(): void {
         this.worldGroup.rotateX(0.005);
 
-        if(Math.random() < 0.03) {
+        if(Math.random() < 0.02) {
             this.createObstacle();
         }
     }
 
     createWorldOrb(): void {
-        let geometry  : THREE.SphereGeometry    = new THREE.SphereGeometry(100, 64, 64);
+        let geometry  : THREE.SphereGeometry    = new THREE.SphereGeometry(this.radius, 64, 64);
 
         this.worldOrb = new THREE.Mesh(geometry, this.material);
        // this.worldOrb.scale.set(5,2,2);
@@ -49,9 +51,17 @@ export default class World {
         grp.add(obstacle);
         grp.rotateZ((Math.random()-0.5) * 10);
         grp.rotateX(- this.worldGroup.rotation.x);
-        obstacle.translateY(102);
+        obstacle.translateY(this.radius + 2);
           
         this.worldGroup.add(grp);
+    }
+
+    getPosition(): THREE.Vector3 {
+        return this.worldGroup.position.clone();
+    }
+
+    getRadius(): number {
+        return this.radius;
     }
 
 }
